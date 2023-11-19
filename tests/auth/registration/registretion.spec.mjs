@@ -194,7 +194,7 @@ test.describe('Registration',()=>{
 
     })
 
-    test('Wrong data in Re-enter password field', async ({page})=>{
+    test('Re-entered password do not match with Password', async ({page})=>{
 
         await page.goto('/')
 
