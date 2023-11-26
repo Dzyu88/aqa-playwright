@@ -3,9 +3,12 @@ import {expect, test} from "@playwright/test"
 
 test.describe('Registration',()=>{
 
-    test('Positive scenario', async ({page})=>{
+    test.beforeEach(async ({page})=>{
 
         await page.goto('/')
+    })
+
+    test('Positive scenario', async ({page})=>{
 
         const name = 'Sasha'
         const lastName = 'Dzyu'
@@ -48,8 +51,6 @@ test.describe('Registration',()=>{
 
     test('Empty field Name', async ({page})=>{
 
-        await page.goto('/')
-
         const name = 'Sasha'
         const lastName = 'Dzyu'
         const email = 'aqa-dzyu@mail.com'
@@ -75,17 +76,15 @@ test.describe('Registration',()=>{
         await emailInput.fill(email)
         await passwordInput.fill(password)
         await repeatPasswordInput.fill(password)
-        const nameErrorMessage = popup.locator('p', {hasText: 'Name required'})
+        const nameErrorMessage = popup.locator('div.invalid-feedback')
 
         await expect(nameErrorMessage, 'Error message should be shown when field name is empty').toBeVisible()
         await expect(nameErrorMessage, 'Error message should be shown when field name is empty').toHaveText('Name required')
         await expect(nameInput, 'Name input should has red border when field name is empty').toHaveCSS('border-color', 'rgb(220, 53, 69)')
 
-       })
+    })
 
     test('Wrong data length in Last Name field', async ({page})=>{
-
-        await page.goto('/')
 
         const name = 'Sasha'
         const lastName = 'D'
@@ -112,7 +111,7 @@ test.describe('Registration',()=>{
         await emailInput.fill(email)
         await passwordInput.fill(password)
         await repeatPasswordInput.fill(password)
-        const lastNameErrorMessage = popup.locator('p', {hasText: 'Last name has to be from 2 to 20 characters long'})
+        const lastNameErrorMessage = popup.locator('div.invalid-feedback')
 
         await expect(lastNameErrorMessage, 'Error message should be shown when data with wrong length entered in Last Name field').toBeVisible()
         await expect(lastNameErrorMessage, 'Error message should be shown when data with wrong length entered in Last Name field').toHaveText('Last name has to be from 2 to 20 characters long')
@@ -121,8 +120,6 @@ test.describe('Registration',()=>{
     })
 
     test('Wrong data in Email field', async ({page})=>{
-
-        await page.goto('/')
 
         const name = 'Sasha'
         const lastName = 'Dzyu'
@@ -149,17 +146,15 @@ test.describe('Registration',()=>{
         await emailInput.fill(email)
         await passwordInput.fill(password)
         await repeatPasswordInput.fill(password)
-        const emailErrorMessage = popup.locator('p', {hasText: 'Email is incorrect'})
+        const emailErrorMessage = popup.locator('div.invalid-feedback')
 
         await expect(emailErrorMessage, 'Error message should be shown when wrong data entered in Email field').toBeVisible()
         await expect(emailErrorMessage, 'Error message should be shown when wrong data entered in Email field').toHaveText('Email is incorrect')
-        await expect(emailErrorMessage, 'Email input should has red border when wrong data entered in Email field').toHaveCSS('border-color', 'rgb(220, 53, 69)')
+            await expect(emailErrorMessage, 'Email input should has red border when wrong data entered in Email field').toHaveCSS('border-color', 'rgb(220, 53, 69)')
 
     })
 
     test('Wrong data in Password field', async ({page})=>{
-
-        await page.goto('/')
 
         const name = 'Sasha'
         const lastName = 'Dzyu'
@@ -186,7 +181,7 @@ test.describe('Registration',()=>{
         await emailInput.fill(email)
         await passwordInput.fill(password)
         await repeatPasswordInput.fill(repeatPassword)
-        const passwordErrorMessage = popup.locator('p', {hasText: 'Password has to be from 8 to 15 characters long and contain at least one integer, one capital, and one small letter'})
+        const passwordErrorMessage = popup.locator('div.invalid-feedback')
 
         await expect(passwordErrorMessage, 'Error message should be shown when wrong data entered in Password field').toBeVisible()
         await expect(passwordErrorMessage, 'Error message should be shown when wrong data entered in Password field').toHaveText('Password has to be from 8 to 15 characters long and contain at least one integer, one capital, and one small letter')
@@ -195,8 +190,6 @@ test.describe('Registration',()=>{
     })
 
     test('Re-entered password do not match with Password', async ({page})=>{
-
-        await page.goto('/')
 
         const name = 'Sasha'
         const lastName = 'Dzyu'
@@ -226,11 +219,11 @@ test.describe('Registration',()=>{
 
         await nameInput.click()
 
-        const RepeatPasswordErrorMessage = popup.locator('p', {hasText: 'Passwords do not match'})
+        const repeatPasswordErrorMessage = popup.locator('div.invalid-feedback')
 
-        await expect(RepeatPasswordErrorMessage, 'Error message should be shown when wrong data entered in Re-enter password field').toBeVisible()
-        await expect(RepeatPasswordErrorMessage, 'Error message should be shown when wrong data entered in Re-enter password field').toHaveText('Passwords do not match')
-        await expect(RepeatPasswordErrorMessage, 'Repeat password input should has red border when wrong data entered in Re-enter password field').toHaveCSS('border-color', 'rgb(220, 53, 69)')
+        await expect(repeatPasswordErrorMessage, 'Error message should be shown when wrong data entered in Re-enter password field').toBeVisible()
+        await expect(repeatPasswordErrorMessage, 'Error message should be shown when wrong data entered in Re-enter password field').toHaveText('Passwords do not match')
+        await expect(repeatPasswordErrorMessage, 'Repeat password input should has red border when wrong data entered in Re-enter password field').toHaveCSS('border-color', 'rgb(220, 53, 69)')
 
     })
 })
