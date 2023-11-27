@@ -150,7 +150,7 @@ test.describe('Registration',()=>{
 
         await expect(emailErrorMessage, 'Error message should be shown when wrong data entered in Email field').toBeVisible()
         await expect(emailErrorMessage, 'Error message should be shown when wrong data entered in Email field').toHaveText('Email is incorrect')
-        await expect(emailErrorMessage, 'Email input should has red border when wrong data entered in Email field').toHaveCSS('border-color', 'rgb(220, 53, 69)')
+            await expect(emailErrorMessage, 'Email input should has red border when wrong data entered in Email field').toHaveCSS('border-color', 'rgb(220, 53, 69)')
 
     })
 
