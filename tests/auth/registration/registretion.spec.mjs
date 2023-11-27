@@ -1,7 +1,7 @@
 
 import {expect, test} from "@playwright/test"
 
-test.describe('Registration',()=>{
+test.describe('Registration @smoke',()=>{
 
     test.beforeEach(async ({page})=>{
 
