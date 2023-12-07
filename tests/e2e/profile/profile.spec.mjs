@@ -1,4 +1,4 @@
-import {test} from '../../src/fixtures/test fixture.js'
+import {test} from '../../../src/fixtures/test fixture.js'
 import {expect} from "@playwright/test";
 
 test.describe.skip('User profile', ()=>{

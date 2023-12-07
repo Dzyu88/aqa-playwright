@@ -2,7 +2,7 @@
   "cookies": [
     {
       "name": "YSC",
-      "value": "hB_05grHFxI",
+      "value": "dCOekmrEMV4",
       "domain": ".youtube.com",
       "path": "/",
       "expires": -1,
@@ -12,20 +12,20 @@
     },
     {
       "name": "VISITOR_INFO1_LIVE",
-      "value": "DkzQrd3m1qw",
+      "value": "B0hGKHiW6rQ",
       "domain": ".youtube.com",
       "path": "/",
-      "expires": 1717109863.174517,
+      "expires": 1717460267.076613,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "sid",
-      "value": "s%3ACzYdPRbTVLUMAAOdRzg41UenI4vFYDLt.sRLNZsG4fU2lczjSDl4kld64%2BSWHkNNaMb96%2BxBDLPY",
+      "value": "s%3AIjms7RX7ULAtEyDqirFg64URHkVI7LPo.Q%2FpSGQHLAILTV5koXZYxLrnr3h0amGTjol%2BYYNLguLM",
       "domain": ".forstudy.space",
       "path": "/",
-      "expires": 1701644269.104142,
+      "expires": 1701994671.960056,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"

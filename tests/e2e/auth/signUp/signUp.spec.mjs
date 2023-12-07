@@ -1,7 +1,7 @@
 import {expect, test} from "@playwright/test";
-import WelcomePage from "../../../src/pageObjects/WelcomePage/WelcomePage.js";
-import SignUpPopup from "../../../src/pageObjects/WelcomePage/components/SignUpPopup.js";
-import SettingsPage from "../../../src/pageObjects/SettingsPage/SettingsPage.js";
+import WelcomePage from "../../../../src/pageObjects/WelcomePage/WelcomePage.js";
+import SignUpPopup from "../../../../src/pageObjects/WelcomePage/components/SignUpPopup.js";
+import SettingsPage from "../../../../src/pageObjects/SettingsPage/SettingsPage.js";
 
 test.describe.skip('Auth', ()=>{
     let page

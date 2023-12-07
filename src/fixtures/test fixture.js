@@ -1,4 +1,4 @@
-import {test as base} from "@playwright/test"
+import {test as base, request} from "@playwright/test"
 import ProfilePage from "../pageObjects/profilePage/ProfilePage.js";
 import WelcomePage from "../pageObjects/WelcomePage/WelcomePage.js";
 import {USERS} from "../data/dict/users.js";
@@ -29,5 +29,12 @@ export const test = base.extend(({
         const garagePage = new GaragePage(page)
         await garagePage.navigate()
         await use(garagePage)
+    },
+
+    userAPIClient: async ({}, use)=>{
+        const ctx = await request.newContext({
+            storageState: STORAGE_STATE_USER_PATH
+        })
+        await use(ctx)
     }
 }))
