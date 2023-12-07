@@ -4,7 +4,7 @@ import {VALID_MODELS_RESPONSE_BODY} from "../../src/data/dict/models.js";
 import {expect} from "@playwright/test";
 import GaragePage from "../../src/pageObjects/GaragePage/GaragePage.js";
 
-test.describe.only("API", ()=>{
+test.describe.skip("API", ()=>{
     test.skip("should return valid brands", async ({userAPIClient})=>{
         const response = await userAPIClient.fetch('/api/cars/brands')
         console.log(response)
